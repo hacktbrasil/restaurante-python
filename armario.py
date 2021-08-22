@@ -1,4 +1,5 @@
 
 
 def pegar_frigideira():
-    return frigideira
+    # return frigideira
+    pass
