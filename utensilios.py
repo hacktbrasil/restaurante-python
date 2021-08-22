@@ -10,7 +10,7 @@ class Temperatura(Enum):
 
 class Frigideira:
 
-    def __init__(self, fogao):
+    def __init__(self):
         self.__ingredientes = []
         self.__temperatura = Temperatura.AMBIENTE
 
