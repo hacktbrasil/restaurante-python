@@ -31,18 +31,9 @@ class Ovo:
         self.__estado['casca'] = EstadoCasca.QUEBRADA
         return self
 
-    def estado_clara(self):
-        return self.__estado['clara']
-
-    def estado_gema(self):
-        return self.__estado['gema']
-
-    def estado_ovo(self):
-        return self.__estado
-
     def mexer(self):
         self.__estado['mexido'] = True
-    
+
     def fritar(self):
         self.__estado['clara'] = EstadoClara.BRANCA
 
@@ -51,6 +42,9 @@ class Ovo:
 
         elif self.__estado['gema'] == EstadoGema.PASTOSA:
             self.__estado['gema'] = EstadoGema.SOLIDA
+
+    def cozinhar(self):
+        pass
 
 
 class OleoVegetal:

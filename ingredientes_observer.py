@@ -1,5 +1,8 @@
 from enum import Enum
 
+import estado
+from utensilios_observer import Frigideira
+
 
 class EstadoCasca(Enum):
     INTEIRA = 'inteira'
@@ -27,18 +30,17 @@ class Ovo:
             'mexido': True,
         }
 
+    def atualizar(self, origem, evento):
+        if self.frigideira_aquecendo(origem, evento):
+            self.fritar()
+
+    def frigideira_aquecendo(origem, evento):
+        return isinstance(origem, Frigideira) \
+                and evento == estado.Frigideira.QUENTE
+
     def quebrar_casca(self):
         self.__estado['casca'] = EstadoCasca.QUEBRADA
         return self
-
-    def estado_clara(self):
-        return self.__estado['clara']
-
-    def estado_gema(self):
-        return self.__estado['gema']
-
-    def estado_ovo(self):
-        return self.__estado
 
     def mexer(self):
         self.__estado['mexido'] = True

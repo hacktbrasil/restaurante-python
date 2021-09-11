@@ -1,25 +1,28 @@
 from enum import Enum
 
-
-class Temperatura(Enum):
-    AMBIENTE = 'ambiente'
-    BAIXA = 'baixa'
-    MEDIA = 'media'
-    ALTA = 'alta'
+from mundofisico_mediator import mundo_fisico, EventoFrigideira
 
 
 class Frigideira:
 
     def __init__(self):
         self.__ingredientes = []
-        self.__temperatura = Temperatura.AMBIENTE
+
+    def aquecer(self):
+        self.transferir_calor()
+
+    def esfriar(self):
+        pass
+
+    def transferir_calor(self):
+        for ingrediente in self.__ingredientes:
+            ingrediente.fritar()
 
     def adicionar_ingrediente(self, ingrediente):
         self.__ingredientes.append(ingrediente)
-        print(f'{ingrediente} foi adicionado à frigideira')
 
-    def estado_ingredientes(self):
-        pass
+    def remover_ingrediente(self, ingrediente):
+        self.__ingredientes.remove(ingrediente)
 
 
 class Espatula:
